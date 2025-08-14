@@ -16,7 +16,11 @@ export default defineConfig({
   resolve: {
     alias: {
       '@ui': path.resolve(__dirname, 'src/ui'),
-      '@common': path.resolve(__dirname, 'src/common')
+      '@common': path.resolve(__dirname, 'src/common'),
+      '@icons': path.resolve(__dirname, 'src/icons'),
+      '@components': path.resolve(__dirname, 'src/components'),
+      '@style': path.resolve(__dirname, 'src/style'),
+      '@*': path.resolve(__dirname, 'src/*/index')
     }
   },
   server: {
@@ -27,7 +31,6 @@ export default defineConfig({
     sourcemap: true,
     outDir: 'build', // Set primary output to dist
     rollupOptions: {
-      // external: ['react-swipeable'],
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
@@ -35,16 +38,6 @@ export default defineConfig({
           }
         }
       }
-      // You can add specific Rollup options here if needed,
-      // but Vite usually handles most optimizations.
-      // For example, if you want to split chunks in a specific way:
-      // output: {
-      //   manualChunks(id) {
-      //     if (id.includes('node_modules')) {
-      //       return id.toString().split('node_modules/')[1].split('/')[0].toString();
-      //     }
-      //   }
-      // }
     }
   }
 });

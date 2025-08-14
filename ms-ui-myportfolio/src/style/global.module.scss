@@ -1,0 +1,30 @@
+$font-light: 'light';
+$font-regular: 'regular';
+$font-semi-bold: 'semi-bold';
+$font-bold: 'bold';
+
+@mixin font-family($value) {
+
+  @if $value == $font-light {
+    font-weight: 300;
+  } @else if  $value == $font-regular {
+    font-weight: 400;
+  } @else if  $value == $font-semi-bold {
+    font-weight: 600;
+  } @else if  $value == $font-bold {
+    font-weight: 800;
+  } 
+}
+
+.font_light {
+  @include font-family('light') ;
+}
+.font_regular {
+  @include font-family('regular') ;
+}
+.font_semi_bold {
+  @include font-family('semi-bold') ;
+}
+.font_bold {
+  @include font-family('bold') ;
+}

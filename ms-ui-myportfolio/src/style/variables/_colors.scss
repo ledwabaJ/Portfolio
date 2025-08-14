@@ -1,0 +1,44 @@
+
+// Define CSS variables for light and dark themes
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #e74c3c;
+}
+
+[data-theme="Dark"] {
+  --primary-color: #2980b9;
+  --secondary-color: #ffffff;
+  --background-color: #000000;
+  --text-color: #ffffff;
+  --accent-color: #c0392b;
+}
+
+[data-theme="Light"] {
+  --primary-color: #3498db;
+  --secondary-color: #595c5a;
+  --background-color: #ffffff;
+  --text-color: #333333;
+  --accent-color: #e74c3c;
+}
+
+// SCSS variables referencing CSS variables
+$primary-color: var(--primary-color);
+$secondary-color: var(--secondary-color);
+$background-color: var(--background-color);
+$text-color: var(--text-color);
+$accent-color: var(--accent-color);
+
+// Mixin for applying theme styles
+@mixin theme-colors {
+  color: $text-color;
+  background-color: $background-color;
+  border-color: $accent-color;
+}
+
+// Example usage
+body {
+  //@include theme-colors;
+}

@@ -1,10 +1,16 @@
 {
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true,
     "jsx": "react-jsx",
-    "baseUrl": "src",
-    "paths": {
-      "@ui/*": ["ui/*"]
+    "baseUrl": "src",    
+    "paths": {          
+      "@ui/*": ["ui/*"],
+      "@icons/*": ["icons/*"],
+      "@common/*": ["common/*"],
+      "@components/*": ["components/*"],
+      "@style/*": ["style/*"],
+      "@*": ["./*/index"]
     }
   },
   "include": ["src"],

@@ -1,3 +1,8 @@
+import React, {
+  useEffect,
+  useState
+}  from 'react';
+
 import './App.css';
 
 import {
@@ -8,31 +13,35 @@ import {
 } from 'react-router-dom';
 
 import {
-  AboutMe
-} from './ui/AboutMe';
+  Header
+} from '@components'
+
+import {
+  Landing
+} from '@ui';
+
+import {
+  ThemeNames
+} from '@common';
 
 function App() {
 
+  const [activeTheme, setTheme ] = useState(ThemeNames.purpleCandy);
+
+  const toggleTheme = () => {
+
+    const value = activeTheme === ThemeNames.yellowSunflower ? ThemeNames.purpleCandy : ThemeNames.yellowSunflower;
+    setTheme(value);
+  }
+
   return (
-    // <Router>
-    //   <Routes>
-       // <Route path={ '/about-me' } element={<AboutMe />} />
-    // </Router> */}
-    <div className='App'>
-      <header className='App-header'>
-        {/* <img src={logo} className='App-logo' alt='logo' /> */}
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className='App-link'
-          href='https://reactjs.org'
-          target='_blank'
-          rel='noopener noreferrer'
-        >
-          Learn React
-        </a>
-      </header>
+    <div data-theme={ activeTheme }>
+    <Header activeTheme={ activeTheme } onClick={ toggleTheme }/>
+    <Router>
+      <Routes>
+       <Route path={ '/' } element={<Landing activeTheme={ activeTheme }/>} />
+      </Routes>
+    </Router>
     </div>
   );
 }
